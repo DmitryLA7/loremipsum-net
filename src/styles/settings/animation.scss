@@ -31,13 +31,22 @@
   }
 }
 
-@keyframes scale {
+@keyframes opacity {
   from {
-    scale: 0;
     opacity: 0;
   }
   to {
-    scale: 1;
     opacity: 1;
+  }
+}
+
+@keyframes scale {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
   }
 }
