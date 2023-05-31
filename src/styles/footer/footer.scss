@@ -49,6 +49,11 @@
     display: flex;
     color: #c3c3c3;
 
+    @include respond-to("small", $type: "max") {
+      flex-wrap: wrap;
+      row-gap: 10px;
+    }
+
     &-item {
       display: flex;
       align-items: center;
@@ -71,7 +76,7 @@
           content: "";
           display: inline-block;
           margin-right: 12px;
-          width: 20px;
+          min-width: 20px;
           height: 20px;
           background: url("../assets/svg/qiwi.svg") center no-repeat;
         }
@@ -82,7 +87,7 @@
           content: "";
           display: inline-block;
           margin-right: 12px;
-          width: 20px;
+          min-width: 20px;
           height: 20px;
           background: url("../assets/svg/ya-money.svg") center no-repeat;
         }
@@ -93,7 +98,7 @@
           content: "";
           display: inline-block;
           margin-right: 12px;
-          width: 20px;
+          min-width: 20px;
           height: 20px;
           background: url("../assets/svg/web-money.svg") center no-repeat;
         }
@@ -103,6 +108,11 @@
 
   &__contacts {
     display: flex;
+
+    @include respond-to("small", $type: "max") {
+      flex-wrap: wrap;
+      row-gap: 10px;
+    }
 
     a {
       color: #fff;
@@ -137,7 +147,7 @@
       &::before {
         content: "";
         background-size: contain;
-        width: 20px;
+        min-width: 20px;
         height: 20px;
       }
     }
