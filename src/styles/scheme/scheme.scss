@@ -1,0 +1,118 @@
+.scheme {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  margin-bottom: 80px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    scale: 0;
+
+    @include respond-to("xs") {
+      width: calc(100% / 2);
+
+      &::after {
+        content: "";
+      }
+    }
+
+    @include respond-to("small", $type: "max") {
+      &:last-child,
+      &:nth-child(2n) {
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    @include respond-to("small") {
+      width: calc(100% / 3);
+    }
+
+    @media (min-width: 768px) and (max-width: 993px) {
+      &:last-child,
+      &:nth-child(3n) {
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    @include respond-to("medium") {
+      width: calc(100% / 5);
+
+      &:last-child,
+      &:nth-child(5n) {
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    &::after {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 30%;
+      transform: translateX(50%);
+      height: 6px;
+      width: 47%;
+      background-image: url("../assets/svg/dotted.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      scale: 0;
+
+      .order.init-anim & {
+        animation: 0.8s cubic-bezier(0.65, 0.05, 0.36, 1) 1.2s 1 normal scale
+          forwards;
+      }
+    }
+
+    &-icon {
+      width: 100px;
+      height: 100px;
+      background-color: #3e9cdc;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: 5px solid #286690;
+      border-radius: 100%;
+
+      &_search {
+        background-image: url("../assets/svg/search.svg");
+      }
+
+      &_percent {
+        background-image: url("../assets/svg/percent.svg");
+      }
+
+      &_file {
+        background-image: url("../assets/svg/file.svg");
+      }
+
+      &_mail {
+        background-image: url("../assets/svg/mail.svg");
+      }
+
+      &_pay {
+        background-image: url("../assets/svg/pay.svg");
+      }
+    }
+
+    &-text {
+      @include font($f-size: 16px, $l-height: 1.2);
+
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .order.init-anim & {
+      animation: 0.8s cubic-bezier(0.65, 0.05, 0.36, 1) 0.8s 1 normal scale
+        forwards;
+    }
+  }
+}

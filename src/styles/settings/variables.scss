@@ -1,0 +1,13 @@
+$font-primary: "Lato", sans-serif;
+$font-second: "Raleway", sans-serif;
+
+$container-spacing: 20px;
+$container-small: calc(922px + (#{$container-spacing} * 2));
+$container: calc(1170px + (#{$container-spacing} * 2));
+
+$breakpoints: (
+  "xs": 480px,
+  "small": 767px,
+  "medium": 992px,
+  "large": 1200px,
+) !default;

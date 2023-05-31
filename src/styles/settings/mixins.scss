@@ -1,0 +1,73 @@
+@mixin font($f-size: 14px, $l-height: 1.2, $f-weight: 400) {
+  font-size: $f-size;
+  line-height: $l-height;
+  font-weight: $f-weight;
+}
+
+@mixin respond-to($breakpoint, $type: "min") {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @if $type == "min" {
+      @media (min-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    } @else {
+      @media (max-width: #{map-get($breakpoints, $breakpoint) + 1}) {
+        @content;
+      }
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin container() {
+  margin: 0 auto;
+  padding: 0 $container-spacing;
+  max-width: $container;
+}
+
+@mixin button() {
+  @include font($f-size: 13px, $l-height: 1.2);
+
+  padding: 15px 31px;
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &--primary {
+    color: #fff;
+    background-color: #3e9cdc;
+    border-color: #fff;
+  }
+
+  &--secondary {
+    color: #2a2b30;
+    background-color: #fff;
+    border-color: #6f6d7b;
+  }
+
+  @include respond-to("medium") {
+    transition: opacity 0.2s ease-in;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+@mixin input() {
+  @include font($f-size: 18px, $l-height: 1.2);
+
+  padding: 12px 35px 12px 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  color: #272733;
+
+  &::placeholder {
+    color: #272733;
+  }
+}
