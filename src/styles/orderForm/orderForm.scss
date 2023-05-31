@@ -141,13 +141,9 @@
       display: flex;
       margin-bottom: 11px;
 
-      span {
+      &_percent {
         display: inline-block;
         margin-left: auto;
-
-        div {
-          display: inline;
-        }
       }
     }
   }

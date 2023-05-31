@@ -111,10 +111,10 @@
               <div class="order-form__range">
                 <div class="order-form__range-result">
                   Sed ut perspiciatis, unde omnis iste natus
-                  <span
-                    ><div id="order-range-result" name="range_result"></div>
-                    %</span
-                  >
+                  <div class="order-form__range-result_percent">
+                    <span id="order-range-result" name="range_result"></span>
+                    %
+                  </div>
                 </div>
                 <input
                   type="range"
@@ -127,7 +127,7 @@
                 />
               </div>
               <div class="order-form__upload">
-                <input type="file" name="file" />
+                <input type="file" name="file" id="file" />
                 <label
                   for="file"
                   class="order-form__upload-button order-form__upload-button--secondary"
